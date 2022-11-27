@@ -10,6 +10,14 @@ import DemoHook from './screens/DemoHook/DemoHook';
 import Main from './screens/BaiTapHook/Main';
 import ListShoeMasonry from './screens/BaiTapHook/component/ListShoeMasonry';
 import DemoFormik from './screens/DemoFormik/DemoFormik';
+import DemoLocalStorage from './screens/demolocalstorage/DemoLocalStorage';
+import Login from './screens/login/Login';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import HomePage from './screens/homepage/HomePage';
+import {KEY_SCREENS} from './common/Constant';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   // return (
@@ -35,11 +43,26 @@ export default function App() {
   //   </Provider>
   // );
 
+  // return (
+  //   <Provider store={store}>
+  //     <View>
+  //       <Main></Main>
+  //     </View>
+  //   </Provider>
+  // );
+
   return (
     <Provider store={store}>
-      <View>
-        <Main></Main>
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen
+            name={KEY_SCREENS.login}
+            component={Login}></Stack.Screen>
+          <Stack.Screen
+            name={KEY_SCREENS.homepage}
+            component={HomePage}></Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
     </Provider>
   );
 }
