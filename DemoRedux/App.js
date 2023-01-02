@@ -16,6 +16,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomePage from './screens/homepage/HomePage';
 import {KEY_SCREENS} from './common/Constant';
+import EditProfilePage from './screens/profile/EditProfilePage';
 
 const Stack = createStackNavigator();
 
@@ -55,12 +56,15 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-          <Stack.Screen
+          {/* <Stack.Screen
             name={KEY_SCREENS.login}
-            component={Login}></Stack.Screen>
-          <Stack.Screen
+            component={Login}></Stack.Screen> */}
+          {/* <Stack.Screen
             name={KEY_SCREENS.homepage}
-            component={HomePage}></Stack.Screen>
+            component={HomePage}></Stack.Screen> */}
+          <Stack.Screen
+            name={KEY_SCREENS.profile}
+            component={EditProfilePage}></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

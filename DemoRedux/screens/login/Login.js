@@ -29,7 +29,7 @@ export default function Login() {
   const navigation = useNavigation();
 
   const signIn = async data => {
-    dispatch(login(data)).then(navigation.push(KEY_SCREENS.homepage));
+    dispatch(login(data)).then(navigation.push(KEY_SCREENS.profile));
     // const token = await getLocalStorageByKey(KEY_STORAGE.token);
     // console.log(`Token ${token}`);
   };
